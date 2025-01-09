@@ -1,0 +1,19 @@
+
+<!-- HTML is a markup language for creating web pages that browser can then open
+ For this assignment, we can utilise "canvas" element to draw our graphics
+ Most of the tags are paired like this : <tag></tag>
+ Learn more about syntax : https://www.w3schools.com/Html/html_intro.asp -->
+<html>
+  <head>
+  <title>Ludmila Mýlková - Earthworms</title>
+  </head>
+  <body>
+    <!-- Following is our HTML Canvas object instance. We tell it to be 400x wide and 400px tall with black 2px border 
+     More about Canvas: https://www.w3schools.com/html/html5_canvas.asp -->
+    <canvas id="canvas_id" width="400px" height="400px" z-index="1" style="border:2px solid #000000;"></canvas>
+    
+    <!-- This is how you separate JavaScript code into an external file, making it cleaner -->
+    <script src="js/earthworms.js"></script>
+    <button onclick="start_game()">Start game</button>
+  </body>
+</html>
