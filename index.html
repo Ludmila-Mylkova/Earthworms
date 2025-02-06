@@ -6,14 +6,67 @@
 <html>
   <head>
   <title>Ludmila Mylkova - Earthworms</title>
+  <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <!-- Following is our HTML Canvas object instance. We tell it to be 400x wide and 400px tall with black 2px border 
-     More about Canvas: https://www.w3schools.com/html/html5_canvas.asp -->
-    <canvas id="canvas_id" width="400px" height="400px" z-index="1" style="border:2px solid #000000;"></canvas>
-    
+    <div style="width:800px; margin:0 auto;">
+      <div style="width:200px; float:left; text-align: center;">
+        <h1>Player 1</h1>
+        <form>
+          <label for="fname">Player 1:</label><br>
+          <input type="text" id="fname" name="fname" maxlength="15"><br>
+        </form>
+        <h3>Pick color:</h3>
+        <div class="width: 0px; margin:0 auto;">
+          <button class="button_color" style="background-color:rgb(8, 0, 255);" onclick="choose_color(1, this)"></button>
+          <button class="button_color" style="background-color:rgb(255, 3, 3);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" style="background-color:rgb(255, 112, 2);" onclick="choose_color(1,this)"></button>
+        </div>
+        <div class="width: 0px; margin:0 auto;">
+          <button class="button_color" style="background-color:rgb(2, 255, 255);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" style="background-color:rgb(2, 255, 36);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" id="p1_color_button" style="background-color:rgb(0, 0, 0); border: solid rgb(44, 131, 49) 5px;" onclick="choose_color(1,this)"></button>
+        </div>
+        <div class="width: 0px; margin:0 auto;">
+          <button class="button_color" style="background-color:rgb(177, 175, 57);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" style="background-color:rgb(253, 13, 193);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" style="background-color:rgb(162, 0, 255);" onclick="choose_color(1,this)"></button>
+        </div>
+      </div>
+      <div style="width:400px; float:left">
+        <canvas id="canvas_id" width="400px" height="400px" z-index="1" style="border:0px solid #000000;"></canvas>
+        <div style="width:50%; margin:20 auto;">
+          <button style="height: 30px; width: 200px; background-color: aquamarine;color:black; border: radius 5px;" onclick="start_game()">Pause</button>
+        </div>
+      </div>
+  
+      <div style="width:200px; float:left; text-align: center;">
+        <h1>Player 2</h1>
+        <form>
+          <label for="fname">Player 2:</label><br>
+          <input type="text" id="fname" name="fname" maxlength="15"><br>
+        </form>
+        <h3>Pick color:</h3>
+        <div class="width: 0px; margin:0 auto;">
+          <button class="button_color" style="background-color:rgb(8, 0, 255);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" style="background-color:rgb(255, 3, 3);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" style="background-color:rgb(255, 112, 2);" onclick="choose_color(2,this)"></button>
+        </div>
+        <div class="width: 0px; margin:0 auto;">
+          <button class="button_color" style="background-color:rgb(2, 255, 255);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" id="p2_color_button" style="background-color:rgb(2, 255, 36); border: solid rgb(44, 131, 49) 5px;" onclick="choose_color(2,this)"></button>
+          <button class="button_color" style="background-color:rgb(0, 0, 0);" onclick="choose_color(2,this);"></button>
+        </div>
+        <div class="width: 0px; margin:0 auto;">
+          <button class="button_color" style="background-color:rgb(177, 175, 57);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" style="background-color:rgb(253, 13, 193);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" style="background-color:rgb(162, 0, 255);" onclick="choose_color(2,this)"></button>
+        </div>
+      </div>
+    </div>
+  
     <!-- This is how you separate JavaScript code into an external file, making it cleaner -->
-    <script src="js/earthworms.js"></script>
-    <button onclick="start_game()">Start game</button>
+    <script src="js/earthworms.js" onload="reset_canvas()"></script>
+    <!--button onclick="start_game()">Start game</button-->
   </body>
 </html>

@@ -1,0 +1,23 @@
+p.a {
+    text-align-last: right;
+}
+
+.column {
+    float: left;
+    width: 33.3%;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.button_color {
+    color:rgb(0, 0, 0);
+    border-radius: 6px;
+    border: 6px solid white;
+    width:35px;
+    height: 35px;
+}
