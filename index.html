@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="div img">
+    <img src="Imgs/IMG_1167.PNG">
+  </div>
     <div style="width:800px; margin:0 auto;">
       <div style="width:200px; float:left; text-align: center;">
         <h1>Player 1</h1>
@@ -18,19 +21,19 @@
         </form>
         <h3>Pick color:</h3>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" style="background-color:rgb(8, 0, 255);" onclick="choose_color(1, this)"></button>
-          <button class="button_color" style="background-color:rgb(255, 3, 3);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" style="background-color:rgb(255, 112, 2);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_blue" id="p1_8_0_255" style="background-color:rgb(8, 0, 255);" onclick="choose_color(1, this)"></button>
+          <button class="button_color" name="p1_red" id="p1_255_3_3" style="background-color:rgb(255, 3, 3);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_orange" id="p1_255_112_2" style="background-color:rgb(255, 112, 2);" onclick="choose_color(1,this)"></button>
         </div>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" style="background-color:rgb(2, 255, 255);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" style="background-color:rgb(2, 255, 36);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" id="p1_color_button" style="background-color:rgb(0, 0, 0); border: solid rgb(44, 131, 49) 5px;" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_cyan" id="p1_2_255_255" style="background-color:rgb(2, 255, 255);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_green" id="p1_2_255_36" style="background-color:rgb(255, 255, 255);" onclick="choose_color(1,this)" disabled></button>
+          <button class="button_color" name="p1_black" id="p1_0_0_0" style="background-color:rgb(0, 0, 0); border: solid rgb(44, 131, 49) 5px;" onclick="choose_color(1,this)"></button>
         </div>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" style="background-color:rgb(177, 175, 57);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" style="background-color:rgb(253, 13, 193);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" style="background-color:rgb(162, 0, 255);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_yellow" id="p1_177_175_57" style="background-color:rgb(177, 175, 57);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_pink" id="p1_253_13_193" style="background-color:rgb(253, 13, 193);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_purple" id="p1_162_0_255" style="background-color:rgb(162, 0, 255);" onclick="choose_color(1,this)"></button>
         </div>
       </div>
       <div style="width:400px; float:left">
@@ -48,22 +51,23 @@
         </form>
         <h3>Pick color:</h3>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" style="background-color:rgb(8, 0, 255);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" style="background-color:rgb(255, 3, 3);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" style="background-color:rgb(255, 112, 2);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_blue" id="p2_8_0_255" style="background-color:rgb(8, 0, 255);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_red" id="p2_255_3_3" style="background-color:rgb(255, 3, 3);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_orange" id="p2_255_112_2" style="background-color:rgb(255, 112, 2);" onclick="choose_color(2,this)"></button>
         </div>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" style="background-color:rgb(2, 255, 255);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" id="p2_color_button" style="background-color:rgb(2, 255, 36); border: solid rgb(44, 131, 49) 5px;" onclick="choose_color(2,this)"></button>
-          <button class="button_color" style="background-color:rgb(0, 0, 0);" onclick="choose_color(2,this);"></button>
+          <button class="button_color" name="p2_cyan" id="p2_2_255_255" style="background-color:rgb(2, 255, 255);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_green" id="p2_2_255_36" style="background-color:rgb(2, 255, 36); border: solid rgb(44, 131, 49) 5px;" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_black" id="p2_0_0_0" style="background-color:rgb(255, 255, 255);" onclick="choose_color(2,this);" disabled></button>
         </div>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" style="background-color:rgb(177, 175, 57);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" style="background-color:rgb(253, 13, 193);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" style="background-color:rgb(162, 0, 255);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_yellow" id="p2_177_175_57" style="background-color:rgb(177, 175, 57);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_pink" id="p2_253_13_193" style="background-color:rgb(253, 13, 193);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_purple" id="p2_162_0_255" style="background-color:rgb(162, 0, 255);" onclick="choose_color(2,this)"></button>
         </div>
       </div>
     </div>
+    
   
     <!-- This is how you separate JavaScript code into an external file, making it cleaner -->
     <script src="js/earthworms.js" onload="reset_canvas()"></script>

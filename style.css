@@ -21,3 +21,21 @@ p.a {
     width:35px;
     height: 35px;
 }
+body{
+    background-image: url(Imgs/IMG_1170.PNG);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  div img{
+    width: 20%;
+    cursor: pointer;
+    margin: 10px;
+    transition:  0.2s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Color_background{
+    background-color: aliceblue;
+    width: 30%
+}
