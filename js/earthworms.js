@@ -15,13 +15,14 @@
 // -- sounds or music?
 // 5, continue implementing ideas to have greatest possible game
 
-let x = 0, y = 0, left = false, right = false;
-let x2 = 0, y2 = 0, left2 = false, right2 = false;
-let anglex = 0, angley = 1;
-let anglex2 = 0, angley2 = -1;
+let x = 0, y = 0;
+let x2 = 0, y2 = 0;
+let width = 6;
+let worm_count = 2;
+let anglex = [0,0], angley = [width,-width];
 let p1r = 0, p1g = 0, p1b = 0, p1button = document.getElementById('p1_0_0_0');
 let p2r = 2, p2g = 255, p2b = 36, p2button = document.getElementById('p2_2_255_36');
-let alive = false;
+let alive = [false,false];
 let image, ctx;
 var fps = 10, fpsInterval, startTime, now, then, elapsed;
 var canvas = document.getElementById('canvas_id');
@@ -29,6 +30,53 @@ ctx = canvas.getContext("2d");
 image = ctx.createImageData(400, 400);
 
 window.addEventListener('keyup', this.keydown, false);
+
+function turn_left(player) {
+
+  if (anglex[player] == -width && angley[player] == 0) {
+    // jede doleva, otoc doleva = pojede dolu
+    anglex[player] = 0; angley[player] = width;
+    return;
+  }
+  if (anglex[player] == 0 && angley[player] == width) {
+    // jede dolu, otoc doleva = pojede doprava
+    anglex[player] = width; angley[player] = 0;
+    return;
+  }
+  if (anglex[player] == width && angley[player] == 0) {
+    // jede doprava, otoc doleva = pojede nahoru
+    anglex[player] = 0; angley[player] = -width;
+    return;
+  }
+  if (anglex[player] == 0 && angley[player] == -width) {
+    // jede nahoru, otoc doleva = pojede doleva
+    anglex[player] = -width; angley[player] = 0;
+    return;
+  }
+}
+
+function turn_right(player) {
+  if (anglex[player] == -width && angley[player] == 0) {
+    // jede doleva, otoc doprava = pojede nahoru
+    anglex[player] = 0; angley[player] = -width;
+    return;
+  }
+  if (anglex[player] == 0 && angley[player] == -width) {
+    // jede nahoru, otoc doprava = pojede doprava
+    anglex[player] = width; angley[player] = 0;
+    return;
+  }
+  if (anglex[player] == width && angley[player] == 0) {
+    // jede doprava, otoc doprava = pojede dolu
+    anglex[player] = 0; angley[player] = width;
+    return;
+  }
+  if (anglex[player] == 0 && angley[player] == width) {
+    // jede dolu, otoc doprava = pojede doleva
+    anglex[player] = -width; angley[player] = 0;
+    return;
+  }
+}
 
     //Ovladani pro oba dva hrace pomoci klavesnice
 function keydown(key) {
@@ -41,94 +89,26 @@ function keydown(key) {
   switch (code) {
     case 37:
       console.log('keydown - LEFT ARROW');
-      if (anglex == -1 && angley == 0) {
-        // jede doleva, otoc doleva = pojede dolu
-        anglex = 0; angley = 1;
-        return;
-      }
-      if (anglex == 0 && angley == 1) {
-        // jede dolu, otoc doleva = pojede doprava
-        anglex = 1; angley = 0;
-        return;
-      }
-      if (anglex == 1 && angley == 0) {
-        // jede doprava, otoc doleva = pojede nahoru
-        anglex = 0; angley = -1;
-        return;
-      }
-      if (anglex == 0 && angley == -1) {
-        // jede nahoru, otoc doleva = pojede doleva
-        anglex = -1; angley = 0;
-        return;
-      }
+      turn_left(0);
       break;
     case 39:
       console.log('keydown - RIGHT ARROW');
-      if (anglex == -1 && angley == 0) {
-        // jede doleva, otoc doprava = pojede nahoru
-        anglex = 0; angley = -1;
-        return;
-      }
-      if (anglex == 0 && angley == -1) {
-        // jede nahoru, otoc doprava = pojede doprava
-        anglex = 1; angley = 0;
-        return;
-      }
-      if (anglex == 1 && angley == 0) {
-        // jede doprava, otoc doprava = pojede dolu
-        anglex = 0; angley = 1;
-        return;
-      }
-      if (anglex == 0 && angley == 1) {
-        // jede dolu, otoc doprava = pojede doleva
-        anglex = -1; angley = 0;
-        return;
-      }
+      turn_right(0);
       break;
     case 65:
       console.log('keydown - A');
-      if (anglex2 == -1 && angley2 == 0) {
-        anglex2 = 0; angley2 = 1;
-        return;
-      }
-      if (anglex2 == 0 && angley2 == 1) {
-        anglex2 = 1; angley2 = 0;
-        return;
-      }
-      if (anglex2 == 1 && angley2 == 0) {
-        anglex2 = 0; angley2 = -1;
-        return;
-      }
-      if (anglex2 == 0 && angley2 == -1) {
-        anglex2 = -1; angley2 = 0;
-        return;
-      }
+      turn_left(1);
       break;
-        case 68: 
-          console.log ('keydown - D'); 
-          if(anglex2==-1 && angley2==0) {
-            anglex2=0;angley2=-1;
-            return;
-          }
-          if(anglex2==0 && angley2==-1){
-            anglex2=1;angley2=0;
-            return;
-          }
-          if(anglex2==1 && angley2==0){
-            anglex2=0;angley2=1;
-            return;
-          }
-          if(anglex2==0 && angley2==1) {
-            anglex2=-1;angley2=0;
-            return;
-          }
-          break;
-      }
-    }
+    case 68: 
+      console.log ('keydown - D'); 
+      turn_right(1);
+      break;
+  }
+}
 
     function start_game() {
       reset_canvas();
-      alive = true;
+      alive = [true,true];
       fpsInterval = 1000 / fps;
       then = startTime = Date.now();
       draw_playfield();
@@ -175,13 +155,11 @@ function keydown(key) {
     function reset_canvas() {
       console.log ('Reset Canvas');
       image.data.fill(255);
-      alive = false;
+      alive = [false,false];
       x = 200;
       y = 200;
-      angle = 0;
       x2 = 150;
       y2 = 150;
-      angle2 = 0;
       for(i=0; i<400; i=i+1) {
         image.data[400*4*0 + i*4] = 0;
         image.data[400*4*0 + i*4 + 1] = 0;
@@ -232,11 +210,14 @@ function keydown(key) {
       }
     }
 
+    function game_over(){
+      if(alive[0]==false && alive[1]==false ){
+      }
+    }
+
 function draw_playfield() {
+  if(alive[0]==false && alive[1]==false) return;
   // console.log('frame - x is '+x+', array is '+image.data[0]);
-  if (alive) {
-    requestAnimationFrame(draw_playfield);
-  }
   // calc elapsed time since last loop
   now = Date.now();
   elapsed = now - then;
@@ -248,26 +229,41 @@ function draw_playfield() {
     // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
     then = now - (elapsed % fpsInterval);
 
-    x = x + anglex;
-    y = y + angley;
-    x2 = x2 + anglex2;
-    y2 = y2 + angley2;
+    x = x + anglex[0];
+    y = y + angley[0];
+    x2 = x2 + anglex[1];
+    y2 = y2 + angley[1];
     //Pohyb obou dvou cervu
-
-    // doleva : anglex=-1;angley=0
-    // nahoru : anglex=0;angley=-1
-    // doprava: anglex=1;angley=0
-    // dolu   : anglex=0;angley=1
-
-    if (test_pixel(x, y, p1r, p1g, p1b)) {
-      console.log("Chcipl Player 1 " + x + ' ' + y);
-      reset_canvas();
-    } else {
-      if (test_pixel(x2, y2, p2r, p2g, p2b)) {
-        console.log("Chcipl Player 2 " + x2 + ' ' + y2);
-        reset_canvas();
+    //vykresli ctverec width * width spravne barvy v kazdem kroku simulace
+    for (let iy=0; iy<width; iy=iy+1) {
+      //vnoreny for cyklus pro kombinovani radku a sloupcu
+      for (let ix=0; ix<width; ix=ix+1) {
+        //console.log('For:'+ix+' '+iy);
+        if(alive[0]) {
+          if (test_pixel(x+ix, y+iy, p1r, p1g, p1b)) {
+            //console.log("Chcipl Player 1 " + x + ' ' + y);
+            // zjisti, jestli ma high score
+            alive[0]=false;
+            if(alive[1]==false) {
+              reset_canvas();
+            }
+          }
+        }
+        if(alive[1]) {
+          if (test_pixel(x2+ix, y2+iy, p2r, p2g, p2b)) {
+            //console.log("Chcipl Player 2 " + x2 + ' ' + y2);
+            alive[1]=false;
+            if(alive[0]==false) {
+              reset_canvas();
+            }
+          }
+        }
       }
     }
     ctx.putImageData(image, 0, 0);
+  }
+
+  if (alive[0] || alive[1]) {
+    requestAnimationFrame(draw_playfield);
   }
 }

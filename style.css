@@ -22,7 +22,7 @@ p.a {
     height: 35px;
 }
 body{
-    background-image: url(Imgs/IMG_1170.PNG);
+    background-image: url(Imgs/IMG_1175.PNG);
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
@@ -34,8 +34,12 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-.Color_background{
-    background-color: aliceblue;
-    width: 30%
+  }
+.score-image{
+    text-align:center;
+    background-color: rgb(255,255,255);
+    border: 1px solid;
+    align-content: center;
+    margin:0 auto;
+    width: 300px;
 }
