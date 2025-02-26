@@ -1,45 +1,44 @@
-p.a {
-    text-align-last: right;
-}
-
-.column {
-    float: left;
-    width: 33.3%;
-}
-  
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 .button_color {
-    color:rgb(0, 0, 0);
-    border-radius: 6px;
-    border: 6px solid white;
-    width:35px;
-    height: 35px;
+  color: rgb(0, 0, 0);
+  border-radius: 6px;
+  border: 6px solid white;
+  width: 35px;
+  height: 35px;
 }
-body{
-    background-image: url(Imgs/IMG_1175.PNG);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
-  div img{
-    width: 20%;
-    cursor: pointer;
-    margin: 10px;
-    transition:  0.2s;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-.score-image{
-    text-align:center;
-    background-color: rgb(255,255,255);
-    border: 1px solid;
-    align-content: center;
-    margin:0 auto;
-    width: 300px;
+
+body {
+  background-image: url(Imgs/IMG_1175.PNG);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.logo .logo-img {
+  width: 20%;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.2s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.score-div {
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid;
+  align-content: center;
+  margin: 0 auto;
+  width: 300px;
+}
+
+td {
+  padding: 2px 10px;
+}
+
+.slidecontainer {
+  width: 401px;
+  margin: 0 auto;
+  border: 1px solid;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
 }

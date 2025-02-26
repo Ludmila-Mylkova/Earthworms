@@ -1,80 +1,115 @@
 
-<!-- HTML is a markup language for creating web pages that browser can then open
- For this assignment, we can utilise "canvas" element to draw our graphics
- Most of the tags are paired like this : <tag></tag>
- Learn more about syntax : https://www.w3schools.com/Html/html_intro.asp -->
 <html>
   <head>
-  <title>Ludmila Mylkova - Earthworms</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Ludmila Mylkova - Earthworms</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="div img">
-      <img src="Imgs/IMG_1167.PNG">
+  <!-- Obrazek v backgroundu-->
+    <div class="logo">
+      <img class="logo-img" src="Imgs/IMG_1179.PNG">
     </div>
+
     <div style="width:800px; height: 450px; margin:0 auto;">
-      <div style="width:24%; float:left; text-align: center; background-color:rgb(255,255,255); border: 1px solid">
-        <h1>Player 1</h1>
+      <div
+        style="width:24%; float:left; text-align: center; background-color:rgb(255,255,255); border: 1px solid rgb(0, 0, 0)">
+        <h2>Player 1</h2>
+        <div>
+          <h3>Controls:</h3>
+          <p style="margin-top: 0px; border: 0px solid; width: 36%; height: 25px; float: left;"></p>
+          <p style="margin-top: 0px; border: 1px solid; width: 25px; height: 25px; float: left;">←</p>
+          <p style="margin-top: 0px; border: 0px solid; width: 5px; height: 25px; float: left;"></p>
+          <p style="margin-top: 0px; border: 1px solid; width: 25px; height: 25px; float: left;">→</p>
+        </div>
         <form>
-          <label for="fname">Player 1:</label><br>
-          <input type="text" id="fname" name="fname" maxlength="15" value="Lidulator"><br>
+          <input type="text" id="fname0" name="fname" maxlength="15" value="Lidulator"><br>
         </form>
         <h3>Pick color:</h3>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" name="p1_blue" id="p1_8_0_255" style="background-color:rgb(8, 0, 255);" onclick="choose_color(1, this)"></button>
-          <button class="button_color" name="p1_red" id="p1_255_3_3" style="background-color:rgb(255, 3, 3);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" name="p1_orange" id="p1_255_112_2" style="background-color:rgb(255, 112, 2);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_blue" id="p1_8_0_255" style="background-color:rgb(8, 0, 255);"
+            onclick="choose_color(1, this)"></button>
+          <button class="button_color" name="p1_red" id="p1_255_3_3" style="background-color:rgb(255, 3, 3);"
+            onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_orange" id="p1_255_112_2" style="background-color:rgb(255, 112, 2);"
+            onclick="choose_color(1,this)"></button>
         </div>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" name="p1_cyan" id="p1_2_255_255" style="background-color:rgb(2, 255, 255);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" name="p1_green" id="p1_2_255_36" style="background-color:rgb(255, 255, 255);" onclick="choose_color(1,this)" disabled></button>
-          <button class="button_color" name="p1_black" id="p1_0_0_0" style="background-color:rgb(0, 0, 0); border: solid rgb(44, 131, 49) 5px;" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_cyan" id="p1_2_255_255" style="background-color:rgb(2, 255, 255);"
+            onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_green" id="p1_2_255_36" style="background-color:rgb(255, 255, 255);"
+            onclick="choose_color(1,this)" disabled></button>
+          <button class="button_color" name="p1_black" id="p1_0_0_0"
+            style="background-color:rgb(0, 0, 0); border: solid rgb(44, 131, 49) 5px;"
+            onclick="choose_color(1,this)"></button>
         </div>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" name="p1_yellow" id="p1_177_175_57" style="background-color:rgb(177, 175, 57);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" name="p1_pink" id="p1_253_13_193" style="background-color:rgb(253, 13, 193);" onclick="choose_color(1,this)"></button>
-          <button class="button_color" name="p1_purple" id="p1_162_0_255" style="background-color:rgb(162, 0, 255);" onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_yellow" id="p1_177_175_57" style="background-color:rgb(177, 175, 57);"
+            onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_pink" id="p1_253_13_193" style="background-color:rgb(253, 13, 193);"
+            onclick="choose_color(1,this)"></button>
+          <button class="button_color" name="p1_purple" id="p1_162_0_255" style="background-color:rgb(162, 0, 255);"
+            onclick="choose_color(1,this)"></button>
         </div>
-       </div>
+      </div>
+
       <div style="width:50%; float:left">
         <canvas id="canvas_id" width="400px" height="400px" z-index="1" style="border:0px solid #000000;"></canvas>
         <div style="width:50%; margin:20 auto;">
-          <button style="height: 30px; width: 200px; background-color: aquamarine;color:black; border: radius 5px;" onclick="start_game()">Start</button>
+          <button id="start_button" style="height: 30px; width: 200px; background-color: aquamarine;color:black; border: radius 5px;"
+            onclick="start_game()">Start</button>
         </div>
       </div>
-      <div style="width:24%; float:left; text-align: center; background-color:rgb(255,255,255); border: 1px solid">
-        <h1>Player 2</h1>
+
+      <div
+        style="width:24%; float:left; text-align: center; background-color:rgb(255,255,255); border: 1px solid rgb(0, 0, 0)">
+        <h2>Player 2</h2>
+        <div>
+          <h3>Controls:</h3>
+          <p style="margin-top: 0px; border: 0px solid; width: 36%; height: 25px; float: left;"></p>
+          <p style="margin-top: 0px; border: 1px solid; width: 25px; height: 25px; float: left;">A</p>
+          <p style="margin-top: 0px; border: 0px solid; width: 5px; height: 25px; float: left;"></p>
+          <p style="margin-top: 0px; border: 1px solid; width: 25px; height: 25px; float: left;">D</p>
+        </div>
         <form>
-          <label for="fname">Player 2:</label><br>
-          <input type="text" id="fname" name="fname" maxlength="15" value="Aldor"><br>
+          <input type="text" id="fname1" name="fname" maxlength="15" value="Aldor"><br>
         </form>
         <h3>Pick color:</h3>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" name="p2_blue" id="p2_8_0_255" style="background-color:rgb(8, 0, 255);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" name="p2_red" id="p2_255_3_3" style="background-color:rgb(255, 3, 3);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" name="p2_orange" id="p2_255_112_2" style="background-color:rgb(255, 112, 2);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_blue" id="p2_8_0_255" style="background-color:rgb(8, 0, 255);"
+            onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_red" id="p2_255_3_3" style="background-color:rgb(255, 3, 3);"
+            onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_orange" id="p2_255_112_2" style="background-color:rgb(255, 112, 2);"
+            onclick="choose_color(2,this)"></button>
         </div>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" name="p2_cyan" id="p2_2_255_255" style="background-color:rgb(2, 255, 255);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" name="p2_green" id="p2_2_255_36" style="background-color:rgb(2, 255, 36); border: solid rgb(44, 131, 49) 5px;" onclick="choose_color(2,this)"></button>
-          <button class="button_color" name="p2_black" id="p2_0_0_0" style="background-color:rgb(255, 255, 255);" onclick="choose_color(2,this);" disabled></button>
+          <button class="button_color" name="p2_cyan" id="p2_2_255_255" style="background-color:rgb(2, 255, 255);"
+            onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_green" id="p2_2_255_36"
+            style="background-color:rgb(2, 255, 36); border: solid rgb(44, 131, 49) 5px;"
+            onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_black" id="p2_0_0_0" style="background-color:rgb(255, 255, 255);"
+            onclick="choose_color(2,this);" disabled></button>
         </div>
         <div class="width: 0px; margin:0 auto;">
-          <button class="button_color" name="p2_yellow" id="p2_177_175_57" style="background-color:rgb(177, 175, 57);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" name="p2_pink" id="p2_253_13_193" style="background-color:rgb(253, 13, 193);" onclick="choose_color(2,this)"></button>
-          <button class="button_color" name="p2_purple" id="p2_162_0_255" style="background-color:rgb(162, 0, 255);" onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_yellow" id="p2_177_175_57" style="background-color:rgb(177, 175, 57);"
+            onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_pink" id="p2_253_13_193" style="background-color:rgb(253, 13, 193);"
+            onclick="choose_color(2,this)"></button>
+          <button class="button_color" name="p2_purple" id="p2_162_0_255" style="background-color:rgb(162, 0, 255);"
+            onclick="choose_color(2,this)"></button>
         </div>
       </div>
     </div>
-    
-    
   
-    <!-- This is how you separate JavaScript code into an external file, making it cleaner -->
-    <script src="js/earthworms.js" onload="reset_canvas()"></script>
-    <!--button onclick="start_game()">Start game</button-->
-    
+    <div class="slidecontainer">
+      <label for="scale" id="scale_label" style="width: 100px; margin:0 auto;">Worm width: 6</label><br>
+      <input type="range" min="1" max="10" value="6" class="slider" id="scale"
+        style="margin:0 auto; width:400px; height: auto; border:2px solid">
+    </div>
+  
     <div style="margin:0 auto; width:800px;">
-      <div class="score-image">
+      <div class="score-div">
         <h3>High Score:</h3>
         <table border="1" style="margin:0 auto; padding:10px 10px">
           <tr>
@@ -82,27 +117,31 @@
             <th>Score</th>
           </tr>
           <tr>
-            <td>Karel</td>
-            <td>5000</td>
+            <!-- td = table data --> 
+            <td id="name1">Karel</td>
+            <td id="score1">5000</td>
           </tr>
           <tr>
-            <td>Franta</td>
-            <td>4000</td>
+            <td id="name2">Franta</td>
+            <td id="score2">4000</td>
           </tr>
           <tr>
-            <td>Pepa</td>
-            <td>3000</td>
+            <td id="name3">Pepa</td>
+            <td id="score3">3000</td>
           </tr>
           <tr>
-            <td>Grunhilda</td>
-            <td>2500</td>
+            <td id="name4">Grunhilda</td>
+            <td id="score4">2500</td>
           </tr>
           <tr>
-            <td>Strejda</td>
-            <td>2000</td>
+            <td id="name5">Strejda</td>
+            <td id="score5">2000</td>
           </tr>
         </table>
       </div>
     </div>
+
+    <script src="js/earthworms.js" onload="on_load()"></script>
+
   </body>
 </html>
